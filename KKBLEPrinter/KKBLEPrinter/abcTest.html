@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+            <script language="javascript">
+
+            function shareClick() {
+                
+                var txt = document.getElementById("txtValue").value
+<!--               var txt = "“主要针对深圳的国家高新企业，最高授信贷款2000万，同时给予贴息，贷款期限最长5年；企业所得税税率由25%降低到15%，节税额40%（比如税额100万，只需缴纳60万）；各区高达30万奖励与深圳市5万现金奖励；政府采购、工程项目招投标，均有高新技术企业优先政策；进入高新区股份代办系统进行股份报价”";-->
+              window.webkit.messageHandlers.bluetoothPrinting.postMessage(txt);
+      
+      
+
+
+            }
+            
+            
+                </script>
+            </head>
+    
+    <body>
+        <h1>这是按钮调用</h1>
+        <input type="button" value="打印" onclick="shareClick()" />
+
+        <h1>在下面输入文本后即可打印</h1>
+        <textarea id ="txtValue" type="value" rows="5" cols="40">
+        </textarea>
+    </body>
+</html>
