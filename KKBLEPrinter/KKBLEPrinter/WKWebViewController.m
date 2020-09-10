@@ -79,7 +79,7 @@ static NSString *obj_print= @"bluetoothPrinting";
     
     WKPreferences *preferences = [WKPreferences new];
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
-    preferences.minimumFontSize = 40.0;
+//    preferences.minimumFontSize = 40.0;
     configuration.preferences = preferences;
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
