@@ -16,6 +16,8 @@
 #import "SafeObject.h"
 #import "BLESelectPopView.h"
 #import "GKCover.h"
+#import "WKWebView+UIImage.h"
+#import "UIImage+Bitmap.h"
 static NSString *obj_print= @"bluetoothPrinting";
 
 @interface WKWebViewController ()<WKUIDelegate,WKScriptMessageHandler,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -226,11 +228,26 @@ getFinalData
     __weak typeof(self) weakself = self;
     if ([obj isKindOfClass:[NSString class]]) {
         NSString *txt = obj;
+       
+        if ([txt hasPrefix:@"http://"] || [txt hasPrefix:@"https://"]) {
+            WKWebView *wk = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+            [wk loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:txt]]];
+            [wk reload];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                UIImage *img = wk.imageForWebView;
+                [self.webPrinter appendImage:img alignment:HLTextAlignmentCenter maxWidth:300];
+                [self.webPrinter appendNewLine];
+            });
+        }else{
+            [self.webPrinter appendText:txt alignment:HLTextAlignmentLeft];
+            [self.webPrinter appendNewLine];
+            [self.webPrinter appendSeperatorLine];
+            [self.webPrinter appendNewLine];
+        }
+        
          NSLog(@"%@",txt);
-         [self.webPrinter appendText:txt alignment:HLTextAlignmentLeft];
-         [self.webPrinter appendNewLine];
-         [self.webPrinter appendSeperatorLine];
-         [self.webPrinter appendNewLine];
+         
         NSData *mainData = [self.webPrinter getFinalData];
         if ([[SEPrinterManager sharedInstance]connectedPerpheral] != nil) {
             [[SEPrinterManager sharedInstance] sendPrintData:mainData completion:^(CBPeripheral *connectPerpheral, BOOL completion, NSString *error) {
@@ -255,47 +272,6 @@ getFinalData
        
     }
     
-    
-    
-//    __weak typeof(self) weakself = self;
-//    if (self.currentCP == nil) {
-//        BLESelectPopView *popView = [[BLESelectPopView alloc]initWithFrame:CGRectMake(30, 0, self.view.bounds.size.width - 60, 300)];
-        
-//        popView.block = ^(CBPeripheral *perpheral) {
-//            weakself.currentCP = perpheral;
-//            weakself.webPrinter = [[HLPrinter alloc]init];
-//            [weakself printBLE:obj];
-//        };
-//        [GKCover coverFrom:self.view contentView:popView style:GKCoverStyleTranslucent showStyle:GKCoverShowStyleCenter showAnimStyle:GKCoverShowAnimStyleCenter hideAnimStyle:GKCoverHideAnimStyleCenter notClick:NO];
-//        return;
-//    }
-    
-//    if ([[SEPrinterManager sharedInstance]connectedPerpheral] == nil) {
-//
-//        return;
-//    }
-    
-//    if ([obj isKindOfClass:[NSString class]]) {
-//         NSString *txt = obj;
-//         NSLog(@"%@",txt);
-//         [self.webPrinter appendText:txt alignment:HLTextAlignmentLeft];
-//         [self.webPrinter appendNewLine];
-//         [self.webPrinter appendSeperatorLine];
-//         [self.webPrinter appendNewLine];
-//
-//        NSData *mainData = [self.webPrinter getFinalData];
-//
-//        NSLog(@"%@",mainData);
-//
-//
-//        [[SEPrinterManager sharedInstance] sendPrintData:mainData completion:^(CBPeripheral *connectPerpheral, BOOL completion, NSString *error) {
-//            if (completion) {
-//                 self.webPrinter = [[HLPrinter alloc]init];
-//                [SVProgressHUD showSuccessWithStatus:@"打印成功"];
-//            }
-//            NSLog(@"写入结：%d---错误:%@",completion,error);
-//        }];
-//    }
     
 }
 

@@ -39,6 +39,7 @@
 		8EEC78302507B38300638B86 /* UIView+GKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC782C2507B38300638B86 /* UIView+GKExtension.m */; };
 		8EEC78312507B38300638B86 /* GKCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC782F2507B38300638B86 /* GKCover.m */; };
 		8EEC78342507B3B400638B86 /* BLESelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC78332507B3B400638B86 /* BLESelectPopView.m */; };
+		8EFDDD9F252364C800FA7550 /* WKWebView+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFDDD9E252364C800FA7550 /* WKWebView+UIImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,8 @@
 		8EEC782F2507B38300638B86 /* GKCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCover.m; sourceTree = "<group>"; };
 		8EEC78322507B3B400638B86 /* BLESelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLESelectPopView.h; sourceTree = "<group>"; };
 		8EEC78332507B3B400638B86 /* BLESelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLESelectPopView.m; sourceTree = "<group>"; };
+		8EFDDD9D252364C800FA7550 /* WKWebView+UIImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+UIImage.h"; sourceTree = "<group>"; };
+		8EFDDD9E252364C800FA7550 /* WKWebView+UIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+UIImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 				8E0E87DE24F7F9D90078D75A /* UIImage+Bitmap.m */,
 				8E0E87DD24F7F9D90078D75A /* UIWebView+UIImage.h */,
 				8E0E87DA24F7F9D90078D75A /* UIWebView+UIImage.m */,
+				8EFDDD9D252364C800FA7550 /* WKWebView+UIImage.h */,
+				8EFDDD9E252364C800FA7550 /* WKWebView+UIImage.m */,
 			);
 			path = BLEPrinter;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				8E0E87F824F7F9DF0078D75A /* NSMutableDictionary+Safe.m in Sources */,
 				8E0E87E524F7F9D90078D75A /* UIImage+Bitmap.m in Sources */,
 				8E0E87F724F7F9DF0078D75A /* NSMutableArray+Safe.m in Sources */,
+				8EFDDD9F252364C800FA7550 /* WKWebView+UIImage.m in Sources */,
 				8E0E880A24F7F9E50078D75A /* SVRadialGradientLayer.m in Sources */,
 				8EEC78342507B3B400638B86 /* BLESelectPopView.m in Sources */,
 				8E0E880D24F7F9E50078D75A /* SVIndefiniteAnimatedView.m in Sources */,
@@ -484,7 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = NUFLLFWA7T;
 				INFOPLIST_FILE = KKBLEPrinter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -503,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = NUFLLFWA7T;
 				INFOPLIST_FILE = KKBLEPrinter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

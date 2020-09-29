@@ -228,7 +228,7 @@
 #pragma mark  文字
 - (void)appendText:(NSString *)text alignment:(HLTextAlignment)alignment
 {
-    [self appendText:text alignment:alignment fontSize:HLFontSizeTitleSmalle];
+    [self appendText:text alignment:alignment fontSize:HLFontSizeTitleBig];
 }
 
 - (void)appendText:(NSString *)text alignment:(HLTextAlignment)alignment fontSize:(HLFontSize)fontSize
